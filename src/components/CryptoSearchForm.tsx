@@ -11,6 +11,7 @@ export default function CryptoSearchForm() {
     cryptocurrency: "",
   });
   const [error, setError] = useState("");
+  const fetchData = useCryptoStore((state) => state.fetchData);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setPair({
@@ -27,7 +28,8 @@ export default function CryptoSearchForm() {
       return;
     }
     setError("");
-    // Consultar la API
+
+    fetchData(pair);
   };
 
   return (
