@@ -6,12 +6,12 @@ import ErrorMessage from "./ErrorMessage";
 
 export default function CryptoSearchForm() {
   const cryptocurrencies = useCryptoStore((state) => state.cryptocurrencies);
+  const fetchData = useCryptoStore((state) => state.fetchData);
   const [pair, setPair] = useState<Pair>({
     currency: "",
     cryptocurrency: "",
   });
   const [error, setError] = useState("");
-  const fetchData = useCryptoStore((state) => state.fetchData);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setPair({
